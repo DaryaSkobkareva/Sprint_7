@@ -26,9 +26,7 @@ public class OrderActions {
     @Step("Отмена заказа")
     public Response cancelOrder(String track) {
         return given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(track)
+                .queryParam("track", track)
                 .when()
                 .put(CANCEL_ORDER);
     }
